@@ -24,14 +24,15 @@
 
 | Column        | Type      | Options                        |
 | ----------    | --------- | ------------------------------ |
-| item_name     | reference | null: false, foreign_key: true |
+| item_image    | string    | null: false                    |
+| item_name     | string    | null: false                    |
 | explain       | text      | null: false                    |
 | category      | string    | null: false                    |
 | condition     | string    | null: false                    |
-| cost bearer   | string    | null: false                    |
+| cost_bearer   | string    | null: false                    |
 | shipping_area | string    | null: false                    |
 | delivery_days | string    | null: false                    |
-| price         | reference | null: false, foreign_key: true |
+| price         | string    | null: false                    |
 | commission    | string    | null: false                    |
 | profit        | reference | null: false                    |
 
@@ -63,8 +64,8 @@
 | prefectures      | string     | null: false                    |
 | municipalities   | string     | null: false                    |
 | street_address   | string     | null: false                    |
-| building         | string     | null: false                    |
-| telephone_number | string     | null: false                    |
+| building         | string     |                   |
+| phone_number     | string     | null: false                    |
 
   Association
 - belongs_to :users
