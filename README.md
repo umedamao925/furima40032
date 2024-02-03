@@ -17,7 +17,7 @@
   Association
 - has_many :items
 - has_many :orders
-
+- has_many :shippings
 
 
 ## items テーブル
@@ -38,6 +38,8 @@
   Association
 - belongs_to :users
 - belongs_to :orders
+- belongs_to :shippings
+
 
 
 
@@ -47,6 +49,16 @@
 | ---------------- | ---------- | ------------------------------ |
 | item_name        | references | null: false, foreign_key:true  |
 | price            | references | null: false, foreign_key:true  |
+
+  Association
+- belongs_to :users
+- belongs_to :items
+- belongs_to :shippings
+
+## shippings テーブル
+
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
 | post_code        | string     | null: false                    |
 | prefectures      | string     | null: false                    |
 | municipalities   | string     | null: false                    |
@@ -57,3 +69,5 @@
   Association
 - belongs_to :users
 - belongs_to :items
+- belongs_to :orders
+
