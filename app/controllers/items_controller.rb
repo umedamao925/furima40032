@@ -1,15 +1,15 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
 
-  #def move_to_index
-   # @item = Item.find(params[:id])
-    #unless user_signed_in? && current_user.id == @item.user_id
-      #redirect_to action: :index
-    #end
-  #end
+  def move_to_index
+    @item = Item.find(params[:id])
+    unless user_signed_in? && current_user.id == @item.user_id
+      redirect_to action: :index
+    end
+  end
 
   def index
-    #@items = Item.all
+    @items = Item.all
   end
 
   def new
@@ -26,8 +26,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  #def show
-  #end
+  def show
+  end
 
   private
  
