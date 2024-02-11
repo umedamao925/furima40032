@@ -1,16 +1,17 @@
 class Item < ApplicationRecord
 
   has_one_attached :image
+  belongs_to :user
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :condition
   belongs_to :cost_bearer
   belongs_to :shipping_area
   belongs_to :delivery_day
-  belongs_to :user
 
 
-  validates :item_name, :explain, :price, :image, :user_id, :category_id, :condition_id, :cost_bearer_id, :shipping_area_id, :delivery_day_id, presence: true
+  validates :item_name, :explain, :price, :image, :category_id, :condition_id, :cost_bearer_id, :shipping_area_id, :delivery_day_id, presence: true
 
   validates :category_id, :condition_id, :cost_bearer_id, :shipping_area_id, :delivery_day_id, numericality: { other_than: 1 , message: " を入力してください"}
 
