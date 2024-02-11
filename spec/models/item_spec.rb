@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
   before do
-    @item = FactoryBot.build(:item)
+    user = FactoryBot.create(:user)
+    @item = FactoryBot.build(:item, user_id: user.id)
   end
   
   describe '商品情報登録' do
@@ -24,27 +25,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include "Imageを入力してください"
       end
       it 'カテゴリーが空では登録できない' do
-        @item.category_id = '---'
+        @item.category_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include "Category を入力してください"
       end
       it '商品の状態が空では登録できない' do
-        @item.condition_id = '---'
+        @item.condition_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include "Condition を入力してください"
       end
       it '配送料の負担情報が空では登録できない' do
-        @item.cost_bearer_id = '---'
+        @item.cost_bearer_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include "Cost bearer を入力してください"
       end      
       it '発送元の地域情報が空では登録できない' do
-        @item.shipping_area_id = '---'
+        @item.shipping_area_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include "Shipping area を入力してください"
       end
       it '発送までの日数情報が空では登録できない' do
-        @item.delivery_day_id = '---'
+        @item.delivery_day_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include "Delivery day を入力してください"
       end
