@@ -24,27 +24,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include "Imageを入力してください"
       end
       it 'カテゴリーが空では登録できない' do
-        @item.category_id = ''
+        @item.category_id = '---'
         @item.valid?
         expect(@item.errors.full_messages).to include "Category を入力してください"
       end
       it '商品の状態が空では登録できない' do
-        @item.condition_id = ''
+        @item.condition_id = '---'
         @item.valid?
         expect(@item.errors.full_messages).to include "Condition を入力してください"
       end
       it '配送料の負担情報が空では登録できない' do
-        @item.cost_bearer_id = ''
+        @item.cost_bearer_id = '---'
         @item.valid?
         expect(@item.errors.full_messages).to include "Cost bearer を入力してください"
       end      
       it '発送元の地域情報が空では登録できない' do
-        @item.shipping_area_id = ''
+        @item.shipping_area_id = '---'
         @item.valid?
         expect(@item.errors.full_messages).to include "Shipping area を入力してください"
       end
       it '発送までの日数情報が空では登録できない' do
-        @item.delivery_day_id = ''
+        @item.delivery_day_id = '---'
         @item.valid?
         expect(@item.errors.full_messages).to include "Delivery day を入力してください"
       end
@@ -68,6 +68,13 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include "Priceは一覧にありません"
       end
+
+      it 'ユーザーが紐付いていなければ投稿できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Userを入力してください')
+      end
+
     end
   end
 end
