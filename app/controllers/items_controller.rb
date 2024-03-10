@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :set_item, only: [:edit, :show, :update]
+  before_action :prevent_url, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.all.order(created_at: :desc)
@@ -28,6 +29,8 @@ end
   def show
   end
 
+
+
   def update
     if @item.update(item_params)
     redirect_to item_path(@item.id)
@@ -47,6 +50,13 @@ end
   def set_item
     @item = Item.find(params[:id])
    end
+
+   def prevent_url
+    if @item.user_id != current_user.id || @item.order != nil #　コードを追加
+      redirect_to root_path
+    end
+
+  end
   
 
 end

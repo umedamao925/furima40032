@@ -70,6 +70,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'pry-rails'
 end
 
 group :production do
@@ -87,3 +88,6 @@ gem 'faker'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'active_hash'
+gem 'payjp'
+gem 'gon'
+gem 'pry-rails'
