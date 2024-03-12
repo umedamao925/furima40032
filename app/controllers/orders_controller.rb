@@ -1,10 +1,15 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :destroy, :index]
 
   def index
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
     @item = Item.find(params[:item_id])
     @order_shipping = OrderShipping.new
+    if @item.user_id != current_user.id || @item.order != nil 
+      redirect_to root_path
+    end
   end
+
 
   def create
     @item = Item.find(params[:item_id])
