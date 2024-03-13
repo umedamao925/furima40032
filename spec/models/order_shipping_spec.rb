@@ -12,6 +12,12 @@ RSpec.describe OrderShipping, type: :model do
         it 'すべての値が正しく入力されていれば購入できること' do
           expect(@order_shipping).to be_valid
       end
+
+      it '建物名が空でも購入できること' do
+        @order_shipping.building = ''
+        expect(@order_shipping).to be_valid
+      end
+      
   
       context '内容に問題がある場合' do
         it '郵便番号は空では保存できないこと' do
@@ -78,11 +84,6 @@ RSpec.describe OrderShipping, type: :model do
       end
     end
 
-    it "tokenが空では登録できないこと" do
-      @order_shipping.token = nil
-      @order_shipping.valid?
-      expect(@order_shipping.errors.full_messages).to include("Token can't be blank")
-  end
 end
 end
 

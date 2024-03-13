@@ -1,15 +1,14 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :destroy, :index]
+  before_action :prevent_url, only: [:edit, :update, :destroy]
+  before_action :set_item, only: [:index, :create]
 
   def index
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
-    @item = Item.find(params[:item_id])
     @order_shipping = OrderShipping.new
-    if @item.user_id != current_user.id || @item.order != nil 
+    if @item.user_id == current_user.id || @item.order != nil 
       redirect_to root_path
     end
   end
-
 
   def create
     @item = Item.find(params[:item_id])
@@ -32,6 +31,11 @@ class OrdersController < ApplicationController
 
 
   private
+
+  def set_item
+    @item = Item.find(params[:item_id])
+   end
+
   def order_params
     params.require(:order_shipping).permit(:postal_code, :prefecture_id, :municipality, :street_address, :building, :phone_number).merge(item_id: params[:item_id], user_id: current_user.id, token: params[:token])
   end
