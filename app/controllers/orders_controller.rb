@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  before_action :prevent_url, only: [:edit, :update, :destroy]
   before_action :set_item, only: [:index, :create]
 
   def index
@@ -11,7 +10,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order_shipping = OrderShipping.new(order_params)
     if @order_shipping.valid?
       @order_shipping.save
