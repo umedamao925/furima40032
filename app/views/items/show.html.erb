@@ -23,6 +23,10 @@
       </span>
     </div>
 
+      <div id="like-btn<%= @item.id %>">
+        <%= render partial: "likes/like", locals: { item: @item } %>
+      </div>
+
 <% if user_signed_in? %>
   <% if current_user.id == @item.user_id %>
     <% unless @item.order.present? %>
