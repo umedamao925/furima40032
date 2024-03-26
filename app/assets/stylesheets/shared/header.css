@@ -62,13 +62,14 @@
 
 .category-list {
   text-decoration: none;
-  margin-right: 3vw;
+  margin-right: 2vw;
   color: #333333;
 }
 
 .brand-list {
   text-decoration: none;
   color: #333333;
+  margin-right: 2vw;
 }
 
 .lists-right {
