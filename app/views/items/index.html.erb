@@ -133,6 +133,7 @@
         <%= link_to item_path(item.id) do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
+          <% end %>
         <% if item.order.present? %>
           <div class='sold-out'>
         <span>Sold Out!!</span>
@@ -148,13 +149,12 @@
             <div class='star-btn'>
           <%#<%= image_tag "star.png", class:"star-icon" %>
           <div class='star-count-text'>いいね</div>
-          <div class='star-count-count'><%= item.likes.count %></div>
-          <div class='star-count-subtext'>件</div>
+
             </div>
           </div>
         </div>
          <% end %>
-        <% end %>
+
          
       </li>
 
