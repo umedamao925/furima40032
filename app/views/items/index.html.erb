@@ -146,8 +146,10 @@
           <div class='item-price'>
             <span><%= item.price %>円<br><%= item.cost_bearer.name %></span>
             <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
+          <%#<%= image_tag "star.png", class:"star-icon" %>
+          <div class='star-count-text'>いいね</div>
+          <div class='star-count-count'><%= item.likes.count %></div>
+          <div class='star-count-subtext'>件</div>
             </div>
           </div>
         </div>

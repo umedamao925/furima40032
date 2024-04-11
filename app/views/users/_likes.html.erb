@@ -1,0 +1,36 @@
+<%#<% @like_items.each do |like_item| %>
+  <%#<%= link_to image_tag(like_item.image.variant(resize: '480x480')), item_path(like_item.id) %>
+  <%#投稿ユーザー<%= link_to like_item.user.nickname, user_path(like_item.user.id) %>
+  <%#<i class="fa fa-heart unlike-btn"></i>
+  いいね:<%= like_item.likes.length %>
+<%#<% end %>
+
+   <%# 商品一覧 %>
+<% current_user.like_items.each do |like_item|%>
+      <li class='list'>
+        <%= link_to item_path(like_item.id) do %>
+        <div class='item-img-content'>
+          <%= image_tag like_item.image, class: "item-img" %>
+        <% if like_item.order.present? %>
+          <div class='sold-out'>
+        <span>Sold Out!!</span>
+          </div>
+        <% end %>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= like_item.item_name %>
+          </h3>
+          <div class='item-price'>
+            <span><%= like_item.price %>円<br><%= like_item.cost_bearer.name %></span>
+            <div class='star-btn'>
+              <%#<%= image_tag "star.png", class:"star-icon" %>
+          <div class='star-count-text'>いいね</div>
+          <div class='star-count-count'><%= @like_counts %></div>
+          <div class='star-count-subtext'>件</div>
+
+            </div>
+          </div>
+        </div>
+         <% end %>
+        <% end %>

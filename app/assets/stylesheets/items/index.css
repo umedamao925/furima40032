@@ -220,7 +220,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10vh 0;
+  padding: 3vh 0;
 }
 
 .item-contents>.title {
@@ -290,12 +290,14 @@ a {
   font-size: 1.5vh;
   display: flex;
   justify-content: space-between;
+  align-items: end;
 }
 
 
 .star-btn {
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  margin-bottom: 15px;
 }
 
 .star-icon {
@@ -309,3 +311,14 @@ a {
 }
 
 /* //商品一覧 */
+
+.favarite-item-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.star-count-count {
+  font-size: 30px;
+  font-weight: lighter;
+}
+

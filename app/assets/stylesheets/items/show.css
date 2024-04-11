@@ -149,18 +149,23 @@
 }
 
 .comment-text {
-  width: 100%;
-  height: 100px;
+  width: 95%;
+  height: 85px;
   padding: 10px;
   border: solid 2px #dedede;
   resize: none;
+  margin-top: 30px;
 }
 
 .comment-warn {
-  padding: 10px;
   font-size: 14px;
-  margin: 10px 0px;
   text-align: left;
+  margin-bottom: 20px;
+  color: #333333;
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 5px;
 }
 
 .comment-btn {
@@ -204,4 +209,54 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 23px;
+}
+
+.comment {
+  background-color: #fff;
+  width: 30vw;
+  margin: 30px auto;
+  border: 1px solid;
+  border-color: #d3d3d3;
+}
+
+.comments-title {
+  font-weight: bold;
+  font-size: 24px;
+  color: #000000;
+  margin-top: 30px;
+  text-align: left;
+  margin-left: 15px;
+}
+
+.comments-index {
+  font-weight: bold;
+  font-size: 24px;
+  color: #000000;
+  margin-bottom: 0px;
+  margin-top: 50px;
+  text-align: left;
+  margin-left: 15px;
+}
+
+p.user-info {
+  font-weight: bolder;
+  text-align: left;
+  padding: 10px;
+}
+
+.time {
+  color: #666666;
+  text-align: right;
+  padding: 10px;
+}
+
+.text {
+  text-align: left;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+input.comment-submit {
+  margin-bottom: 20px;
 }
