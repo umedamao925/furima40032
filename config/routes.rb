@@ -3,7 +3,15 @@ Rails.application.routes.draw do
   root to: "items#index"
   resources :items do
     resources :orders, only: [:index, :create] 
-    resource :likes, only: [:create, :destroy]
-    resources :comments, only: :create
+    resources :likes, only: [:create, :destroy, :index]
+    resources :comments, only: [:create, :destroy]
   end
+
+  resources :users do
+    member do
+      get :likes
+    end
+  end
+
 end
+

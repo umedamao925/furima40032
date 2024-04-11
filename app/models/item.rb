@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   has_one_attached :image
   belongs_to :user
   has_one :order
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :comments
 
   extend ActiveHash::Associations::ActiveRecordExtensions

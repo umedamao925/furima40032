@@ -5,6 +5,12 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order(created_at: :desc)
+    if user_signed_in?
+    @user = current_user
+    likes = Like.where(user_id: @user.id).pluck(:item_id)
+    @like_items = Item.where(id: likes)
+    @like_counts = @like_items.map { |item| Like.where(item_id: item.id).count }.sum
+    end
   end
 
   def new
@@ -29,7 +35,13 @@ class ItemsController < ApplicationController
   def show
     @comments = @item.comments.includes(:user)
     @comment = Comment.new
+    @user = current_user
+    if user_signed_in?
+    likes = Like.where(user_id: @user.id).pluck(:item_id)
+    @like_items = Item.where(id: likes)
+    @like_counts = @like_items.map { |item| Like.where(item_id: item.id).count }.sum
   end
+end
 
 
   def destroy
@@ -64,6 +76,5 @@ end
     end
   end
 
-  
 
 end

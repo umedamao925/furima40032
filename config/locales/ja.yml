@@ -4,3 +4,7 @@ ja:
       user:
         nickname: ニックネーム
         birthday: 誕生日
+    time:
+    formats:
+      default: "%Y/%m/%d %H:%M"
+      

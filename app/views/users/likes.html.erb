@@ -1,0 +1,8 @@
+<%= render "shared/header" %>
+  <div class='item-contents'>
+    <div class='favarite-item-title'>あなたがいいねした商品</div>
+    </div>
+    <ul class='item-lists'>
+<%= render partial: "users/likes", locals: { user: @like_items }%>
+    </ul>
+<%= render "shared/footer" %>
