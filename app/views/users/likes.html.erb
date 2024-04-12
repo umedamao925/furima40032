@@ -3,6 +3,9 @@
     <div class='favarite-item-title'>あなたがいいねした商品</div>
     </div>
     <ul class='item-lists'>
-<%= render partial: "users/likes", locals: { user: @like_items }%>
+<%= render partial: "users/likes", locals: { like_items: @like_items } %>
     </ul>
 <%= render "shared/footer" %>
+
+
+<%#<%= render partial: "users/likes", locals: { user: @like_items }%>
