@@ -260,3 +260,7 @@ p.user-info {
 input.comment-submit {
   margin-bottom: 20px;
 }
+
+.favorite-box {
+  display: flex;
+}

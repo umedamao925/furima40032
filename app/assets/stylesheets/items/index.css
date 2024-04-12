@@ -2,7 +2,7 @@ a {
   text-decoration: none;
 }
 
-link, a:visited, a:hover, a:active {
+a.favorite-list {
   color: #333333;;
 }
 

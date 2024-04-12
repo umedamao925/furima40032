@@ -25,11 +25,21 @@
 
 <% if user_signed_in? %>
   <% if current_user.id != @item.user_id %>
+      <div class="favorite-box">
       <div id="like-btn"<%= @item.id %>>
         <%= render partial: "likes/like", locals: { item: @item } %>
       </div>
+      <div class="favorite-count">
+      <% if user_signed_in? %>
+      <div class='star-btn'>
+      <div class='star-count-count-titile'>（いいね:</div><div class='star-counts'><%= @item.likes.count %></div>
+      <div class='star-count-subtext'>件）</div>
+      <% end %>
+      </div>
+      </div>
   <% end %>
 <% end %>
+      </div>
 
 <% if user_signed_in? %>
   <% if current_user.id == @item.user_id %>
@@ -80,16 +90,18 @@
       <div class="favorite-btn">
         <%#<%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
          <%#<span>お気に入り</span>%>
-          <div class='star-count-text'>いいね</div>
-          <div class='star-count-count'><%= @like_counts %></div>
+         <% if user_signed_in? %>
+          <div class='star-btn'>
+          <div class='star-count-count-titile'>いいね</div><div class='star-count-count'><%= @item.likes.count %></div>
           <div class='star-count-subtext'>件</div>
+        <% end %>
       </div>
+            </div>
       <div class="report-btn">
-        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切な商品の通報</span>
+        <%= image_tag "flag.png" ,class:"flag-icon" ,width:"20",height:"20"%>
+        <div class="call-btn">不適切な商品の通報</div>
       </div>
     </div>
-  </div>
   <%# /商品の概要 %>
 
 <div class="comment-box">

@@ -3,6 +3,10 @@
   margin-bottom: 15px;
 }
 
+img.flag-icon {
+  margin-bottom: 0px;
+}
+
 .top-page-header {
   width: 100vw;
   padding: 2vh 15vw;

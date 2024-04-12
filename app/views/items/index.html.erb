@@ -128,35 +128,32 @@
     </div>
     <ul class='item-lists'>
 
-      <% @items.each do |item|%>
-      <li class='list'>
-        <%= link_to item_path(item.id) do %>
-        <div class='item-img-content'>
-          <%= image_tag item.image, class: "item-img" %>
-          <% end %>
-        <% if item.order.present? %>
-          <div class='sold-out'>
-        <span>Sold Out!!</span>
-          </div>
-        <% end %>
+<% @items.each do |item|%>
+  <li class='list'>
+    <%= link_to item_path(item.id) do %>
+      <div class='item-img-content'>
+        <%= image_tag item.image, class: "item-img" %>
+      <% if item.order.present? %>
+        <div class='sold-out'>
+          <span>Sold Out!!</span>
         </div>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            <%= item.item_name %>
-          </h3>
-          <div class='item-price'>
-            <span><%= item.price %>円<br><%= item.cost_bearer.name %></span>
-            <div class='star-btn'>
-          <%#<%= image_tag "star.png", class:"star-icon" %>
-          <div class='star-count-text'>いいね</div>
-
-            </div>
-          </div>
+      <% end %>
+      </div>
+    <% end %>
+    <div class='item-info'>
+      <h3 class='item-name'>
+        <%= item.item_name %>
+      </h3>
+      <div class='item-price'>
+        <span><%= item.price %>円<br><%= item.cost_bearer.name %></span>
+        <div class='star-btn'>
+          <div class='star-count-count-titile'>いいね</div><div class='star-count-count'><%= item.likes.count %></div>
+          <div class='star-count-subtext'>件</div>
         </div>
-         <% end %>
-
-         
-      </li>
+      </div>
+    </div>
+  </li>
+<% end %>
 
       <% if @items[0] == nil %>
       <li class='list'>
