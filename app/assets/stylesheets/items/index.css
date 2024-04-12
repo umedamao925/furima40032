@@ -2,6 +2,10 @@ a {
   text-decoration: none;
 }
 
+link, a:visited, a:hover, a:active {
+  color: #333333;;
+}
+
 .main {
   background: #f8f8f8;
 }
