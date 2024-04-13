@@ -1,7 +1,6 @@
 /* 商品の概要 */
 
 .item-show {
-  background-color: #f8f8f8;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -11,9 +10,8 @@
 
 .item-box {
   background-color: #FFF;
-  width: 70vw;
-  min-width: 1200px;
-  padding: 10vh 15vw;
+  width: 40vw;
+  min-width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,18 +24,19 @@
 }
 
 .item-box-img {
-  height: 50vh;
-  width: 60vw;
+  height: 40vh;
+  width: 40vw;
   min-height: 500px;
   background-color: rgb(205, 202, 202);
   object-fit: contain;
 }
 
 .item-price-box {
-  margin: 25px 0px;
-  display: flex;
+  margin: 10px 0px;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  display: flex;
+  align-items: baseline;
 }
 
 .item-price-box>.item-price {
@@ -56,7 +55,6 @@
   font-size: 24px;
   font-weight: bold;
   color: #FFF;
-  margin: 20px 0px;
   padding: 2vh 10vw;
 }
 
@@ -144,17 +142,17 @@
 .comment-box {
   width: 40vw;
   background-color: #fff;
-  margin: 5vh 0;
   text-align: center;
 }
 
 .comment-text {
-  width: 95%;
+  width: 80%;
   height: 85px;
   padding: 10px;
   border: solid 2px #dedede;
   resize: none;
-  margin-top: 30px;
+  margin-top: 20px;
+  display: block;
 }
 
 .comment-warn {
@@ -163,7 +161,6 @@
   margin-bottom: 20px;
   color: #333333;
   padding-top: 5px;
-  padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 5px;
 }
@@ -213,19 +210,19 @@
 
 .comment {
   background-color: #fff;
-  width: 30vw;
-  margin: 30px auto;
+  width: 80%;
   border: 1px solid;
   border-color: #d3d3d3;
+  margin-top: 20px;
+  margin-bottom: 80px;
 }
 
 .comments-title {
   font-weight: bold;
   font-size: 24px;
   color: #000000;
-  margin-top: 30px;
+  margin-top: 60px;
   text-align: left;
-  margin-left: 15px;
 }
 
 .comments-index {
@@ -235,7 +232,6 @@
   margin-bottom: 0px;
   margin-top: 50px;
   text-align: left;
-  margin-left: 15px;
 }
 
 p.user-info {
@@ -259,8 +255,56 @@ p.user-info {
 
 input.comment-submit {
   margin-bottom: 20px;
+  padding: 3px 10px;
 }
 
 .favorite-box {
   display: flex;
+  align-items: baseline;
+}
+
+.item-area {
+  display: flex;
+}
+
+.text-area {
+  margin-left: 100px;
+}
+
+.name {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.comment-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-submit-wrap {
+  width: 80%;
+}
+
+.item-price-mark {
+  margin-right: 5px;
+}
+
+span.item-postage {
+  margin-left: 5px;
+}
+
+.contents-area {
+  display: contents;
+}
+
+.item-explain-box-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #7d7d7d;
+  margin-top: 60px;
+  margin-bottom: 15px;
+}
+
+div#like-btn {
+  margin-bottom: 25px;
 }

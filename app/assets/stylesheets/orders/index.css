@@ -155,3 +155,7 @@
   font-size: 14px;
   cursor: pointer;
 }
+
+img.purchase-btn-icon {
+  margin-bottom: 0px;
+}

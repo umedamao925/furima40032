@@ -2,10 +2,9 @@
 
 <%# 商品の概要 %>
 <div class="item-show">
+<div class='contents-area'>
+<div class='item-area'>
   <div class="item-box">
-    <h2 class="name">
-      <%= @item.item_name %>
-    </h2>
     <div class="item-img-content">
       <%= image_tag @item.image ,class:"item-box-img" %>
         <% if @item.order.present? %>
@@ -14,10 +13,14 @@
           </div>
         <% end %>
     </div>
+   </div>
+
+    <div class='text-area'>
+    <div class="name">
+  <%= @item.item_name %>
+    </div>
     <div class="item-price-box">
-      <span class="item-price">
-        ¥<%= @item.price %>
-      </span>
+      <div class="item-price-mark">¥</div><div class="item-price"><%= @item.price %></div>
       <span class="item-postage">
         <%= @item.cost_bearer.name %>
       </span>
@@ -56,6 +59,7 @@
 <% end %>
   
     <div class="item-explain-box">
+    <div class="item-explain-box-title">商品の説明</div>
       <span><%= @item.explain %></span>
     </div>
     <table class="detail-table">
@@ -87,16 +91,7 @@
       </tbody>
     </table>
     <div class="option">
-      <div class="favorite-btn">
-        <%#<%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-         <%#<span>お気に入り</span>%>
-         <% if user_signed_in? %>
-          <div class='star-btn'>
-          <div class='star-count-count-titile'>いいね</div><div class='star-count-count'><%= @item.likes.count %></div>
-          <div class='star-count-subtext'>件</div>
-        <% end %>
-      </div>
-            </div>
+
       <div class="report-btn">
         <%= image_tag "flag.png" ,class:"flag-icon" ,width:"20",height:"20"%>
         <div class="call-btn">不適切な商品の通報</div>
@@ -115,7 +110,9 @@
         <br>
         不快な言葉遣いなどは利用制限や退会処分となることがあります。
       </p>
-      <%= f.submit "コメントをする", class: "comment-submit" %>
+      <div class="comment-submit-wrap">
+      <%= f.submit "コメントを送信", class: "comment-submit" %>
+      </div>
     <% end %>
   <% end %>
 </div>
@@ -125,12 +122,14 @@
   <div class="comments-index">投稿されたコメント一覧</div>
     <% @item.comments.each do |comment| %>
       <div class="comment">
+      <div class="comment-info">
         <p class="user-info">投稿者：<%= comment.user.nickname %> </p>
-        <div class="text"><%= comment.text%></div>
         <div class ="time">投稿日時：<%= l comment.created_at, format: :short %></div>
+        </div>
+        <div class="text"><%= comment.text%></div>
       <% if user_signed_in? %>
       <% if current_user.id == comment.user_id %>
-        <%= button_to "コメントを削除する", item_comment_path(@item, comment), method: :delete, class:'comment-destroy' %>
+        <%= button_to "コメントを削除", item_comment_path(@item, comment), method: :delete, class:'comment-destroy' %>
     </div>
       <% end %>
       <% end %>
@@ -139,7 +138,8 @@
 <% end %>
 
 </div>
-
+    </div>
+     </div>
 
   <div class="links">
     <a href="#" class="change-item-btn">
