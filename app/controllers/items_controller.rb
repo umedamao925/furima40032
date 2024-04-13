@@ -33,6 +33,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @like = current_user.likes.find_by(item_id: @item.id)
     @comments = @item.comments.includes(:user)
     @comment = Comment.new
     @user = current_user
