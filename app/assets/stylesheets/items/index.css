@@ -7,7 +7,7 @@ a.favorite-list {
 }
 
 a.item_likes {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 input.comment-submit {
@@ -298,7 +298,6 @@ button.comment-destroy {
 .item-info {
   background-color: #FFF;
   color: black;
-  padding: 1vw;
 }
 
 .item-name {
@@ -330,8 +329,9 @@ button.comment-destroy {
 /* //商品一覧 */
 
 .favarite-item-title {
-  font-size: 30px;
+  font-size: 35px;
   font-weight: bold;
+  color: #3ccace;
 }
 
 .star-count-count {
@@ -339,3 +339,7 @@ button.comment-destroy {
   font-weight: lighter;
 }
 
+.price-favorite-wrap {
+  margin-top: 5px;
+  margin-bottom: 60px;
+}

@@ -159,3 +159,25 @@
 img.purchase-btn-icon {
   margin-bottom: 0px;
 }
+
+.item-price {
+  display: flex;
+  justify-content: left;
+}
+
+.item-price-2 {
+  margin-left: 5px;
+}
+
+.item-price-1 {
+  font-size: 24px;
+}
+
+.price-favorite-wrap {
+  display: flex;
+}
+
+.star-count-count-titile {
+  margin-left: 20px;
+}
+

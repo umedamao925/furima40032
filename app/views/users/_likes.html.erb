@@ -7,28 +7,37 @@
 
    <%# 商品一覧 %>
 <% current_user.like_items.each do |like_item|%>
-  <li class='list'>
+<li class='list'>
     <%= link_to item_path(like_item.id) do %>
-    <div class='item-img-content'>
-      <%= image_tag like_item.image, class: "item-img" %>
+      <div class='item-img-content'>
+        <%= image_tag like_item.image, class: "item-img" %>
       <% if like_item.order.present? %>
         <div class='sold-out'>
-        <span>Sold Out!!</span>
+          <span>Sold Out!!</span>
         </div>
       <% end %>
-    </div>
+      </div>
+    <% end %>
     <div class='item-info'>
       <h3 class='item-name'>
         <%= like_item.item_name %>
       </h3>
+      <div class='wrap'>
+        <div class='price-favorite-wrap'>
+        <div class='price-favorite-wrap-1'>
       <div class='item-price'>
-        <span><%= like_item.price %>円<br><%= like_item.cost_bearer.name %></span>
+        <div class='item-price-1'><%= like_item.price %>円</div><div class='item-price-2'><%= like_item.cost_bearer.name %></div>
+      </div>
+        </div>
+        <div class='price-favorite-wrap-2'>
         <div class='star-btn'>
           <div class='star-count-count-titile'>いいね</div><div class='star-count-count'><%= like_item.likes.count %></div>
           <div class='star-count-subtext'>件</div>
+              </div>
+          </div>
         </div>
       </div>
     </div>
-    <% end %>
   </li>
 <% end %>
+
